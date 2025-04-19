@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <string.h>
+int main(){
+    //Input a string.
+    char str[100];
+    printf("Enter a string:\n");
+    fgets(str, sizeof(str), stdin);
+
+    //Let us find the length of the string.
+    int len = strlen(str) - 1;
+    //Create variables to tell the program that the number of vowel, consonant, space and number is 0 at the starting.
+    int vowel = 0;
+    int consonant = 0;
+    int space = 0;
+    int number = 0;
+    //Let us run out query now
+    for (int i = 0; i < len; i++)
+    {   //check if the thing is a character or not.
+        if (str[i] >= 'A' && str[i] <= 'Z' || str[i] >= 'a' && str[i] <= 'z')
+        {
+            //Now check if this is a vowel or consonant.
+            if (str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u' || str[i] == 'A' || str[i] == 'E' || str[i] == 'I' || str[i] == 'O' || str[i] == 'U')
+                        {
+                            //Increase the number of vowel if one is found.
+                vowel = vowel + 1;
+            }
+            else
+            {
+                consonant = consonant + 1;
+            }
+            
+            
+            
+        }
+        else if (str[i] >= '0' && str[i] <= '9')
+        {
+            //increase the number of number if one is found.
+            number = number + 1;
+        }
+        else if (str[i] == ' ')
+        {
+            //Increase the number of space if one is found.
+            space = space + 1;
+        }
+        else
+        {
+            //This can be a special character or punctuation mark. We are not bother about it. So let us ignore it.
+            continue;
+        }
+        
+                
+        
+    }
+    
+    printf("The user entered string contains %d vowels, %d consonants, %d spaces and %d numbers.\n", vowel, consonant, space, number);
+    return 0;
+}
